@@ -1,0 +1,164 @@
+﻿article, aside, dialog, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+/* あまり意味ないっぽい設定 */
+@page {
+ margin: 0;
+ size: 297mm 210mm;
+}
+
+/* ブラウザが勝手につけるマージンの削除。* とする例もあるが、body だけで済むならそれでよし */
+body {
+ margin: 0;
+}
+
+/* フッター固定のためのレイアウト */
+body {
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+}
+footer {
+ margin-top: auto;
+}
+
+/* 外観 */
+@media screen {
+ body {
+  background: #eee;
+ }
+}
+
+/* ヘッダ部 */
+@media screen {
+ header {
+ /* border: 1px red dotted; */
+  font-family:sans-serif;
+  margin: 5px;
+  padding:10px 15px;
+  color:white;
+  background-color:black;
+  border-radius:8px;
+ }
+ .small-letters {
+  font-size:60%;
+ }
+ #tbx_Year {
+  width:40px;
+  text-align:center;
+  margin-left:50px;
+ }
+}
+@media print {
+ header {display:none;}
+}
+
+/* 主部 */
+/*
+main {
+ border: 1px red dashed; 
+}
+*/
+@media screen {
+ section.Sheet { /* 用紙 */
+  background-color:white;
+  height:210mm; /* A4 ヨコ */
+  width:297mm; /* A6 ヨコ */
+  margin:5mm;
+  box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); /* ドロップシャドウ */
+ }
+}
+@media print {
+ section.Sheet { /* 用紙 */
+  background-color:white;
+  height:210mm; /* A4 ヨコ */
+  width:297mm; /* A4 ヨコ */
+  page-break-after: always;
+ }
+}
+/* 月セクション */
+section.Month {
+/* border: 1px red dashed; */
+ display: flex; /* ヘッダである月を右に、カレンダ表を左に入れる flexbox */
+ flex-direction: row-reverse;
+ height:105mm; /* A4 ヨコ */
+ width:149mm; /* A6 ヨコ */
+}
+/* 月見出し */
+h1.Tab {
+ order:1; /* flexbox section.Sheet の右から第 1 アイテム */
+/*	float:right; */
+ background-color:black;
+ color:white;
+ font-weight:bold;
+ width:9mm;
+ height:9mm;
+ text-align:center;
+ margin:7mm 0 0 3mm;
+ padding:0;
+ font-family:'Times New Roman', serif;
+ font-size:18pt;
+ line-height:9mm;
+}
+/* カレンダー表本体 */
+table.Calendar {
+ order:2; /* flexbox section.Sheet の右から第 2 アイテム */
+/*	border:0; */
+ border-collapse:collapse;
+ margin:7mm 0 0 0;
+ width:126mm;
+/* height:88.5mm; */
+ height:90.0mm; */
+}
+/* カレンダー表ヘッダ */
+th {
+ width:16mm;
+ height:3.5mm;
+ border:0;
+ font-family:'Times New Roman', serif;
+ font-size:7pt;
+ border-top:0.5px gray solid;
+ border-right:0.5px gray solid;
+}
+th.HeadHoliday {
+ color:white;
+ background-color:black
+}
+/* カレンダー表日付セル */
+td {
+ width:16mm;
+ font-family:'Times New Roman', serif;
+ border-top:0.5px gray solid;
+ border-right:0.5px gray solid;
+/* height:14.0mm; */
+ vertical-align:top;
+ padding:0.5mm 1mm;
+ font-size:7pt;
+}
+.LeftEnd {
+ border-left:0.5px gray solid;
+}
+.BottomEnd {
+ border-bottom:0.5px gray solid;
+}
+.NoBorderR {
+ border-right:0;
+}
+.NoBorderL {
+ border-left:0;
+}
+.Holiday {
+ background-image:url("./holidaymark.svg");
+}
+
+/* フッタ部 */
+@media screen {
+ footer {
+ /* border: 1px navy dashed; */
+  background-color: black;
+ }
+}
+@media print {
+ footer{
+  display: none;
+ }
+}

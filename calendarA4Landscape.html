@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="./calendarA4Landscape.css" />
+<script type="text/javascript" src="./calendarA4Landscape.js" ></script>
+<title>Calendar Generator</title>
+</head>
+
+<body onload="body_OnLoad()" >
+
+<header>
+ <strong>Calendar Generator</strong> <span class="small-letters">for maruman S160 series pocket croquis book</span>
+ <input type="textbox" id="tbx_Year" onkeydown="tbx_Year_Enter()" />
+</header>
+
+<main>
+ <div id="divTemplate">
+ <!-- 以下 secTemplate はレイアウト表のひな形 -->     
+ <section id="secTemplate" class="Sheet" >
+  <section id="secMonthTop" class="Month">
+  <h1 class="Tab">0</h1>
+  <table class="Calendar" cellspacing="0" cellpadding="0" >
+   <thead>
+    <tr>
+     <th class="HeadHoliday LeftEnd">Sunday</th>
+     <th>Monday</th>
+     <th>Tuesday</th>
+     <th>Wednesday</th>
+     <th>Thursday</th>
+     <th>Friday</th>
+     <th class="HeadHoliday">Saturday</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr> <td class="LeftEnd"></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+    <tr> <td class="LeftEnd"></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+    <tr> <td class="LeftEnd"></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+    <tr> <td class="LeftEnd"></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+    <tr> <td class="LeftEnd"></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+    <tr>
+     <td class="LeftEnd BottomEnd"></td>
+     <td class="BottomEnd"></td>
+     <td class="BottomEnd"></td>
+     <td class="BottomEnd"></td>
+     <td class="BottomEnd"></td>
+     <td class="BottomEnd"></td>
+     <td class="BottomEnd"></td>
+    </tr>
+   </tbody>
+  </table>
+  </section>
+  <section id="secMonthBottom" class="Month">
+   <h1 class="Tab">0</h1>
+   <table class="Calendar" cellspacing="0" cellpadding="0" >
+    <thead>
+     <tr>
+      <th class="HeadHoliday LeftEnd">Sunday</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th class="HeadHoliday">Saturday</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr> <td class="LeftEnd"></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+     <tr> <td class="LeftEnd"></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+     <tr> <td class="LeftEnd"></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+     <tr> <td class="LeftEnd"></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+     <tr> <td class="LeftEnd"></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+     <tr>
+      <td class="LeftEnd BottomEnd"></td>
+      <td class="BottomEnd"></td>
+      <td class="BottomEnd"></td>
+      <td class="BottomEnd"></td>
+      <td class="BottomEnd"></td>
+      <td class="BottomEnd"></td>
+      <td class="BottomEnd"></td>
+     </tr>
+    </tbody>
+   </table>
+   </section>
+ </section> <!-- secTemplate の終わり -->
+ </div> <!-- divTemplate の終わり -->
+ <div id="divPrint"></div>
+</main>
+
+<footer>
+ Footer here
+</footer>
+
+</body>
+
+</html>
