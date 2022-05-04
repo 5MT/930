@@ -1,32 +1,54 @@
-﻿//
+﻿var iNmuberOfQuestions = 3;
+//
 //	ロード時
 //
 function body_OnLoad() {
  // 現在の年を取得してデフォルト入力
- var iYear = new Date().getFullYear();
- document.getElementById("tbx_Year").value = iYear;
- populateCalendars(iYear);
- document.getElementById("divTemplate").style.display = "none"; // 最後にテンプレートは消す
+ var iNumberOfDigit = 4;
+ document.getElementById("tbx_NumberOfDigit").value = iNumberOfDigit;
+ populateDrillQuestions(iNumberOfDigit);
  return;
 }
 //
 //	Enter 時
 //
-function tbx_Year_Enter(){
+function tbx_NumberOfDigit_Enter(){
  if (event.keyCode == 13){
-  var iYear = document.getElementById("tbx_Year").value;
-  populateCalendars(iYear);
+  var iNumberOfDigit = document.getElementById("tbx_NumberOfDigit").value;
+  populateDrillQuestions(iNumberOfDigit);
  }
- document.getElementById("divTemplate").style.display = "none"; // 最後にテンプレートは消す
  return;
 }
 
 
+function fillNumbers(elmOfOl){
+ if(elmOfOl.tagName == "LI"){
+  elmOfOl.childNodes[0].innerText = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
+  elmOfOl.childNodes[2].innerText = 4567890;
+  document.getElementById("secBottom").innerText = elmOfOl.childNodes[2].tagName;
+}
+}
 //
 //	表作成
 //
-function populateCalendars(iYear) {
- 
+function populateDrillQuestions(iNumberOfDigit) {
+  // まず掛け算部分について
+  var olMultiplication = document.getElementById("olMultiplication");
+  olMultiplication.childNodes.forEach(fillNumbers);
+
+  // デバッグ用
+//  document.getElementById("secBottom").innerText = olMultiplication.childNodes.length;
+
+  olMultiplication.childNodes.forEach(fillNumbers);
+  
+//
+// }
+  var spnQ1Num1 = document.getElementById("q1num1");
+  spnQ1Num1.innerText = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
+  var spnQ1Num2 = document.getElementById("q1num2");
+  spnQ1Num2.innerText = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
+
+
  var divPrint = document.getElementById("divPrint");
  
  // 一旦画面上の印刷用 div 内を全てクリア
