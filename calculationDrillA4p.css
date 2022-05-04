@@ -61,8 +61,8 @@ main {
 @media screen {
  section.Sheet { /* 用紙 */
   background-color:white;
-  height:210mm; /* A4 ヨコ */
-  width:297mm; /* A6 ヨコ */
+  height:297mm; /* A4 タテ */
+  width:210mm; /* A4 タテ */
   margin:5mm;
   box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); /* ドロップシャドウ */
  }
@@ -75,15 +75,20 @@ main {
   page-break-after: always;
  }
 }
-/* 月セクション */
-section.Month {
-/* border: 1px red dashed; */
- display: flex; /* ヘッダである月を右に、カレンダ表を左に入れる flexbox */
- flex-direction: row-reverse;
- height:105mm; /* A4 ヨコ */
- width:149mm; /* A6 ヨコ */
+/* 段組セクション */
+section#secLeft {
+    border: 1px red dashed;
+    float: left;
+    width: 50%;
 }
-/* 月見出し */
+section#secRight {
+    border: 1px blue dashed;
+}
+section#secBottom {
+    clear:both;
+    border: 1px green dashed;
+}
+   /* 月見出し */
 h1.Tab {
  order:1; /* flexbox section.Sheet の右から第 1 アイテム */
 /*	float:right; */
