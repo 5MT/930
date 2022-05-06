@@ -29,8 +29,7 @@ function tbx_NumberOfDigit_Enter(){
 //
 function populateDrillQandA(iNumberOfDigit){
   //　初期化
-  document.getElementById("secAnswerMultiplication").innerText="";
-  document.getElementById("secAnswerDivision").innerText="";
+  document.getElementById("secBottom").innerText="Answer";
   // メインフロー
   fillQuesionNumbers(iNumberOfDigit).then(
    // 成功 (resolved) フロー
@@ -65,14 +64,13 @@ function populateDrillQandA(iNumberOfDigit){
       // ol の子アイテムはブランクも含まれるので注意。
       var fillNumbers = (elmOfOl)=>{
         if(elmOfOl.tagName == "LI"){
-          elmOfOl.childNodes[iIndexOfElmOf1stNumber].innerText = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
-          elmOfOl.childNodes[iIndexOfElmOf2ndNumber].innerText = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
+          elmOfOl.innerText = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
+          elmOfOl.innerText = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
         }
       };
        
       // fillQuestionNumbers の本処理
-      document.getElementById("olMultiplication").childNodes.forEach(fillNumbers);
-      document.getElementById("olDivision").childNodes.forEach(fillNumbers);
+      document.getElementById("olDivisionQuestions").childNodes.forEach(fillNumbers);
 
       // ちゃんと上の本処理が終わってからここに来てくれるといいが……
       resolveFillQnum();

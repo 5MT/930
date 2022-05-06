@@ -76,12 +76,12 @@ main {
  }
 }
 /* 段組セクション */
-section.secLeft {
+.Left {
     border: 1px red dashed;
     float: left;
     width: 50%;
 }
-section.secRight {
+.Right {
     border: 1px blue dashed;
 }
 section#secBottom {
