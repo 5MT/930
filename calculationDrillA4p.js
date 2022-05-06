@@ -1,17 +1,14 @@
 ﻿var iNmuberOfQuestions = 3;
 var iIndexOfElmOf1stNumber = 0;
 var iIndexOfElmOf2ndNumber = 2;
+var iDefaultNumberOfDigit = 4;
 //
 //	ロード時
 //
 function body_OnLoad() {
  // 現在の年を取得してデフォルト入力
- var iNumberOfDigit = 4;
- document.getElementById("secAnswerMultiplication").innerText="";
- document.getElementById("secAnswerDivision").innerText="";
- document.getElementById("tbx_NumberOfDigit").value = iNumberOfDigit;
- populateDrillQandA(iNumberOfDigit);
-
+ document.getElementById("tbx_NumberOfDigit").value = iDefaultNumberOfDigit;
+ populateDrillQandA(iDefaultNumberOfDigit);
  return;
 }
 //
@@ -19,8 +16,6 @@ function body_OnLoad() {
 //
 function tbx_NumberOfDigit_Enter(){
  if (event.keyCode == 13){
-  document.getElementById("secAnswerMultiplication").innerText="";
-  document.getElementById("secAnswerDivision").innerText="";
   var iNumberOfDigit = document.getElementById("tbx_NumberOfDigit").value;
   populateDrillQandA(iNumberOfDigit);
  }
@@ -29,9 +24,13 @@ function tbx_NumberOfDigit_Enter(){
 
 
 
+
 // 紙面作成
 //
 function populateDrillQandA(iNumberOfDigit){
+  //　初期化
+  document.getElementById("secAnswerMultiplication").innerText="";
+  document.getElementById("secAnswerDivision").innerText="";
   // メインフロー
   fillQuesionNumbers(iNumberOfDigit).then(
    // 成功 (resolved) フロー
