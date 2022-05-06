@@ -3,22 +3,12 @@
 /* あまり意味ないっぽい設定 */
 @page {
  margin: 0;
- size: 297mm 210mm;
+ size: 210mm 297mm;
 }
 
 /* ブラウザが勝手につけるマージンの削除。* とする例もあるが、body だけで済むならそれでよし */
 body {
  margin: 0;
-}
-
-/* フッター固定のためのレイアウト */
-body {
- display: flex;
- flex-direction: column;
- min-height: 100vh;
-}
-footer {
- margin-top: auto;
 }
 
 /* 外観 */
@@ -39,13 +29,13 @@ footer {
   background-color:black;
   border-radius:8px;
  }
- .small-letters {
-  font-size:60%;
+ #spnInput {
+  margin-left:5em;
+  font-size:80%;
  }
- #tbx_Year {
+ #tbx_NumberOfDigit {
   width:40px;
   text-align:center;
-  margin-left:50px;
  }
 }
 @media print {
@@ -70,80 +60,40 @@ main {
 @media print {
  section.Sheet { /* 用紙 */
   background-color:white;
-  height:210mm; /* A4 ヨコ */
-  width:297mm; /* A4 ヨコ */
+  height:297mm; /* A4 タテ */
+  width:210mm; /* A4 タテ */
+  border:1px gray dashed;
   page-break-after: always;
  }
 }
-/* 段組セクション */
-.Left {
-    border: 1px red dashed;
-    float: left;
-    width: 50%;
+ol li {
+	list-style-type: none;
+	counter-increment: cnt;
+    padding-left:5mm;
 }
-.Right {
-    border: 1px blue dashed;
+ol li::before {
+	content: "(" counter(cnt) ")";
+}
+span.spnQItem {
+    font-size: larger;
+    padding-left:5mm;
+}
+li.Left {
+    padding-bottom:110mm;
+    float: left;
+    width: 100mm;
+}
+li.Right {
+    padding-bottom:110mm;
 }
 section#secBottom {
     clear:both;
-    border: 1px green dashed;
-}
-   /* 月見出し */
-h1.Tab {
- order:1; /* flexbox section.Sheet の右から第 1 アイテム */
-/*	float:right; */
- background-color:black;
- color:white;
- font-weight:bold;
- width:9mm;
- height:9mm;
- text-align:center;
- margin:7mm 0 0 3mm;
- padding:0;
- font-family:'Times New Roman', serif;
- font-size:18pt;
- line-height:9mm;
+    font-size:small;
+    padding:2mm 10mm;
 }
 
-/* カレンダー表ヘッダ */
-th {
- width:16mm;
- height:3.5mm;
- border:0;
- font-family:'Times New Roman', serif;
- font-size:7pt;
- border-top:0.5px gray solid;
- border-right:0.5px gray solid;
-}
-th.HeadHoliday {
- color:white;
- background-color:black
-}
-/* カレンダー表日付セル */
-td {
- width:16mm;
- font-family:'Times New Roman', serif;
- border-top:0.5px gray solid;
- border-right:0.5px gray solid;
-/* height:14.0mm; */
- vertical-align:top;
- padding:0.5mm 1mm;
- font-size:7pt;
-}
-.LeftEnd {
- border-left:0.5px gray solid;
-}
-.BottomEnd {
- border-bottom:0.5px gray solid;
-}
-.NoBorderR {
- border-right:0;
-}
-.NoBorderL {
- border-left:0;
-}
-.Holiday {
- background-image:url("./holidaymark.svg");
+h1 {
+    padding:15mm;
 }
 
 /* フッタ部 */

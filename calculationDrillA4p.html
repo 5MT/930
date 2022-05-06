@@ -12,25 +12,21 @@
 
 <header>
  <strong>Calculation Drill</strong>
- Digit = <input type="textbox" id="tbx_NumberOfDigit" onkeydown="tbx_NumberOfDigit_Enter()" />
+ <span id="spnInput">Digit : <input type="textbox" id="tbx_NumberOfDigit" onkeydown="tbx_NumberOfDigit_Enter()" /></span>
 </header>
 
 <main>
  <section id="secTemplate" class="Sheet" >
    <h1>除算練習問題</h1>
      <ol id="olDivisionQuestions">
-      <li class="Left">abc</li>
-      <li class="Right">def</li>
-      <li class="Left">abd</li>
-      <li class="Right">ddw</li>
+      <li class="Left"><span class="spnQItem"></span></li>
+      <li class="Right"><span class="spnQItem"></span></li>
+      <li class="Left"><span class="spnQItem"></span></li>
+      <li class="Right"><span class="spnQItem"></span></li>
      </ol>
    <section id="secBottom"></section>
 </section> <!-- secTemplate の終わり -->
 </main>
-
-<footer>
- Footer here
-</footer>
 
 </body>
 

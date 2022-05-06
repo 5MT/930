@@ -1,7 +1,7 @@
 ﻿var iNmuberOfQuestions = 3;
 var iIndexOfElmOf1stNumber = 0;
 var iIndexOfElmOf2ndNumber = 2;
-var iDefaultNumberOfDigit = 4;
+var iDefaultNumberOfDigit = 6;
 //
 //	ロード時
 //
@@ -29,71 +29,26 @@ function tbx_NumberOfDigit_Enter(){
 //
 function populateDrillQandA(iNumberOfDigit){
   //　初期化
-  document.getElementById("secBottom").innerText="Answer";
-  // メインフロー
-  fillQuesionNumbers(iNumberOfDigit).then(
-   // 成功 (resolved) フロー
-   ()=>{
-    // 答えを入れるフローはここから
-    var putAnswersMultiplication = (elmOfOl)=>{
-      if(elmOfOl.tagName == "LI"){
-        document.getElementById("secAnswerMultiplication").innerText
-        += Number(elmOfOl.childNodes[iIndexOfElmOf1stNumber].innerText)*Number(elmOfOl.childNodes[iIndexOfElmOf2ndNumber].innerText)
-        + ", ";
-      }
-    };
-    var putAnswersDivision = (elmOfOl)=>{
-      if(elmOfOl.tagName == "LI"){
-        document.getElementById("secAnswerDivision").innerText
-        += Math.round(Number(elmOfOl.childNodes[iIndexOfElmOf1stNumber].innerText)/Number(elmOfOl.childNodes[iIndexOfElmOf2ndNumber].innerText)*10000)/10000
-        + ", ";
-      }
-    };
-    document.getElementById("olMultiplication").childNodes.forEach(putAnswersMultiplication);
-    document.getElementById("olDivision").childNodes.forEach(putAnswersDivision);
+  document.getElementById("secBottom").innerText="Answer : ";
+  
+  var fillNumbers = (elmOfOl, iIndex)=>{
+   var iNum1;
+   var iNum2;
+   if(elmOfOl.tagName == "LI"){
+    iIndex = (iIndex+1)/2
+    // まず二つの数値を生成
+    iNum1 = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
+    iNum2 = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
+    // 問題の式を表示
+    elmOfOl.childNodes[0].innerText = iNum1 + " ÷ " + iNum2;
+    // 回答打ち出し
+    document.getElementById("secBottom").innerText += "    (" + iIndex + ") " + (Math.round(iNum1/iNum2*1000)/1000).toFixed(3);
    }
-   ,
-   // 失敗 (rejected) フロー
-   ()=>{}
-  );
-
-  /* Promise */ function fillQuesionNumbers(iNumberOfDigit){
-    return new Promise((resolveFillQnum, rejectFillQNum)=>{
-      
-      // ol の子アイテム (li を期待している) をぞれぞれ引数にとって処理する。
-      // ol の子アイテムはブランクも含まれるので注意。
-      var fillNumbers = (elmOfOl)=>{
-        if(elmOfOl.tagName == "LI"){
-          elmOfOl.innerText = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
-          elmOfOl.innerText = Math.floor(Math.random()*Math.pow(10,iNumberOfDigit));
-        }
-      };
-       
-      // fillQuestionNumbers の本処理
-      document.getElementById("olDivisionQuestions").childNodes.forEach(fillNumbers);
-
-      // ちゃんと上の本処理が終わってからここに来てくれるといいが……
-      resolveFillQnum();
-    });
   };
+       
+  // fillQuestionNumbers の本処理
+  document.getElementById("olDivisionQuestions").childNodes.forEach(fillNumbers);
 }
   // デバッグ用
 //  document.getElementById("secBottom").innerText = olMultiplication.childNodes.length;
 
-//
-//	メモフィールドの作成
-//
-function createMemoField(secNthMonth) {
- // node に tbody を設定
- var tbCalendar = secNthMonth.childNodes[3].childNodes[3];
- if (tbCalendar.childNodes[2*6-1].childNodes[1].innerText == "") {
-  tbCalendar.childNodes[2*6-1].childNodes[1].innerText = "Memo";
-  for (var iCol = 1; iCol <=6; iCol++){
-   tbCalendar.childNodes[2*6-1].childNodes[2*iCol-1].className += " NoBorderR";
-  }
-  for (var iCol = 2; iCol <=7; iCol++){
-   tbCalendar.childNodes[2*6-1].childNodes[2*iCol-1].className += " NoBorderL";
-  }
- }
- return;
-}
