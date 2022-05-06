@@ -76,12 +76,12 @@ main {
  }
 }
 /* 段組セクション */
-section#secLeft {
+.Left {
     border: 1px red dashed;
     float: left;
     width: 50%;
 }
-section#secRight {
+.Right {
     border: 1px blue dashed;
 }
 section#secBottom {
@@ -104,16 +104,7 @@ h1.Tab {
  font-size:18pt;
  line-height:9mm;
 }
-/* カレンダー表本体 */
-table.Calendar {
- order:2; /* flexbox section.Sheet の右から第 2 アイテム */
-/*	border:0; */
- border-collapse:collapse;
- margin:7mm 0 0 0;
- width:126mm;
-/* height:88.5mm; */
- height:90.0mm; */
-}
+
 /* カレンダー表ヘッダ */
 th {
  width:16mm;
