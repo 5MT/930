@@ -3,6 +3,7 @@
 /* あまり意味ないっぽい設定 */
 @page {
  margin: 0;
+/* size: 210mm 297mm; */
  size: 210mm 297mm;
 }
 
@@ -60,9 +61,10 @@ main {
 @media print {
  section.Sheet { /* 用紙 */
   background-color:white;
-  height:297mm; /* A4 タテ */
   width:210mm; /* A4 タテ */
-  border:1px gray dashed;
+/*  height:297mm; /* A4 タテ */
+  height:297mm; /* A4 タテ */
+  border:1px white solid; /* これをつけないとなぜかページ送りされてしまう */
   page-break-after: always;
  }
 }
@@ -79,12 +81,14 @@ span.spnQItem {
     padding-left:5mm;
 }
 li.Left {
-    padding-bottom:110mm;
+/*    padding-bottom:110mm; */
+    padding-bottom:109mm;
     float: left;
     width: 100mm;
 }
 li.Right {
-    padding-bottom:110mm;
+/*    padding-bottom:110mm; */
+    padding-bottom:109mm;
 }
 section#secBottom {
     clear:both;
